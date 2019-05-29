@@ -11,152 +11,118 @@
         </a>
       </div>
 
-      <!-- Edit link contact start -->
       <div class="col">
         <a href="/contacts/<%= @contact.id %>/edit" class="btn btn-block btn-outline-secondary">
           Edit contact
         </a>
       </div>
-      <!-- Edit link contact end -->
 
-      <!-- Delete link contact start -->
       <div class="col">
         <a href="/delete_contact/<%= @contact.id %>" class="btn btn-block btn-outline-secondary">
           Delete contact
         </a>
       </div>
-      <!-- Delete link contact end -->
     </div>
 
     <dl>
       <dt>
         Name
       </dt>
-      <!-- Display name start -->
       <dd>
         <%= @contact.name %>
       </dd>
-      <!-- Display name end -->
 
       <dt>
         Email
       </dt>
-      <!-- Display email start -->
       <dd>
         <%= @contact.email %>
       </dd>
-      <!-- Display email end -->
 
       <dt>
         Phone number
       </dt>
-      <!-- Display phone_number start -->
       <dd>
         <%= @contact.phone_number %>
       </dd>
-      <!-- Display phone_number end -->
 
       <dt>
         Network
       </dt>
-      <!-- Display network start -->
       <dd>
         <%= @contact.network %>
       </dd>
-      <!-- Display network end -->
 
       <dt>
         Company
       </dt>
-      <!-- Display company start -->
       <dd>
         <%= @contact.company %>
       </dd>
-      <!-- Display company end -->
 
       <dt>
         Title
       </dt>
-      <!-- Display title start -->
       <dd>
         <%= @contact.title %>
       </dd>
-      <!-- Display title end -->
 
       <dt>
         Work location
       </dt>
-      <!-- Display work_location start -->
       <dd>
         <%= @contact.work_location %>
       </dd>
-      <!-- Display work_location end -->
 
       <dt>
         School program
       </dt>
-      <!-- Display school_program start -->
       <dd>
         <%= @contact.school_program %>
       </dd>
-      <!-- Display school_program end -->
 
       <dt>
         School section
       </dt>
-      <!-- Display school_section start -->
       <dd>
         <%= @contact.school_section %>
       </dd>
-      <!-- Display school_section end -->
 
       <dt>
         School kwest
       </dt>
-      <!-- Display school_kwest start -->
       <dd>
         <%= @contact.school_kwest %>
       </dd>
-      <!-- Display school_kwest end -->
 
       <dt>
         First met
       </dt>
-      <!-- Display first_met start -->
       <dd>
         <%= @contact.first_met %>
       </dd>
-      <!-- Display first_met end -->
 
       <dt>
         Remarks
       </dt>
-      <!-- Display remarks start -->
       <dd>
         <%= @contact.remarks %>
       </dd>
-      <!-- Display remarks end -->
 
       <dt>
         Created at
       </dt>
-      <!-- Display created_at start -->
       <dd>
         <%= time_ago_in_words(@contact.created_at) %> ago
       </dd>
-      <!-- Display created_at end -->
 
       <dt>
         Updated at
       </dt>
-      <!-- Display updated_at start -->
       <dd>
         <%= time_ago_in_words(@contact.updated_at) %> ago
       </dd>
-      <!-- Display updated_at end -->
     </dl>
   </div>
 </div>
 
-<!-- Show Page Customization starts -->
-<!-- Show Page Customization end -->
