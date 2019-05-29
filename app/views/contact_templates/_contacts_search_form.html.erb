@@ -1,0 +1,115 @@
+<%= search_form_for @q, :class => collapse_search_form, :id => "contacts_filters" do |f| %>
+  <p class="lead">Narrow results:</p>
+
+  <div class="form-group">
+    <%= f.label :name_cont, "Name contains" %>
+    <%= f.text_field :name_cont, :class => "form-control", :placeholder => "Name contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :remarks_cont, "Remarks contains" %>
+    <%= f.text_field :remarks_cont, :class => "form-control", :placeholder => "Remarks contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :first_met_cont, "First met contains" %>
+    <%= f.text_field :first_met_cont, :class => "form-control", :placeholder => "First met contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :school_kwest_cont, "School kwest contains" %>
+    <%= f.text_field :school_kwest_cont, :class => "form-control", :placeholder => "School kwest contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :school_section_cont, "School section contains" %>
+    <%= f.text_field :school_section_cont, :class => "form-control", :placeholder => "School section contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :school_program_cont, "School program contains" %>
+    <%= f.text_field :school_program_cont, :class => "form-control", :placeholder => "School program contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :work_location_cont, "Work location contains" %>
+    <%= f.text_field :work_location_cont, :class => "form-control", :placeholder => "Work location contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :title_cont, "Title contains" %>
+    <%= f.text_field :title_cont, :class => "form-control", :placeholder => "Title contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :company_cont, "Company contains" %>
+    <%= f.text_field :company_cont, :class => "form-control", :placeholder => "Company contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :network_cont, "Network contains" %>
+    <%= f.text_field :network_cont, :class => "form-control", :placeholder => "Network contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :phone_number_cont, "Phone number contains" %>
+    <%= f.text_field :phone_number_cont, :class => "form-control", :placeholder => "Phone number contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email_cont, "Email contains" %>
+    <%= f.text_field :email_cont, :class => "form-control", :placeholder => "Email contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :created_at, "Created at" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <div class='input-group date' id='created_atgteqPicker' data-target-input="nearest">
+          <%= f.text_field :created_at_gteq, :class => "form-control datetimepicker-input", :placeholder => "Created at greater than or equal to", :data => {:target => '#created_atgteqPicker'} %>
+          <div class="input-group-append" data-target='#created_atgteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class='col-md-6'>
+        <div class='input-group date' id='created_atlteqPicker' data-target-input="nearest">
+          <%= f.text_field :created_at_lteq, :class => "form-control datetimepicker-input", :placeholder => "Created at less than or equal to", :data => {:target => '#created_atlteqPicker'} %>
+          <div class="input-group-append" data-target='#created_atlteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+      $(function () {
+          $('#created_atgteqPicker').datetimepicker({
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#created_atlteqPicker').datetimepicker({
+              useCurrent: false,
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#created_atgteqPicker').on("dp.change", function (e) {
+              $('#created_atlteqPicker').data("DateTimePicker").minDate(e.date);
+          });
+          $('#created_atlteqPicker').on("dp.change", function (e) {
+              $('#created_atgteqPicker').data("DateTimePicker").maxDate(e.date);
+          });
+      });
+  </script>
+
+
+
+
+  <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
+
+  <a href="/contacts" class="btn btn-outline-secondary btn-block mb-1">Clear filters</a>
+
+<% end %>
+
+<a class="btn btn-outline-secondary btn-block mb-1" data-toggle="collapse" href="#contacts_filters">
+  Show filters
+</a>
