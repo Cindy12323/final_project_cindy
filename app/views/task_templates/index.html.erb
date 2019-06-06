@@ -1,0 +1,125 @@
+<div class="row mb-3">
+  <div class="col-md-12">
+    <h1>
+      All tasks
+    </h1>
+
+    <a href="/tasks/new" class="btn btn-block btn-outline-secondary">
+      Add a new task
+    </a>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-3">
+    <%= render partial: "task_templates/tasks_search_form" %>
+  </div>
+</div>
+
+
+
+<hr>
+
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Due date
+        </th>
+
+        <th>
+          Title
+        </th>
+
+        <th>
+          Notes
+        </th>
+
+        <th>
+          Tag
+        </th>
+
+        <th>
+          Status
+        </th>
+
+        <th>
+          Contact
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @tasks.each do |task| %>
+      <tr>
+        <td>
+          <%= task.id %>
+        </td>
+
+        <td>
+          <%= task.due_date %>
+        </td>
+
+        <td>
+          <%= task.title %>
+        </td>
+
+        <td>
+          <%= task.notes %>
+        </td>
+
+        <td>
+          <%= task.tag %>
+        </td>
+
+        <td>
+          <%= task.status %>
+        </td>
+
+        <td>
+          <% if task.contact.present? %>
+            <a href="/contacts/<%= task.contact.id %>">
+              <%= task.contact.first_name %>
+            </a>
+          <% end %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(task.created_at) %> ago
+        </td>
+
+        <td>
+          <%= time_ago_in_words(task.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/tasks/<%= task.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+
+    <div class="row mb-3">
+      <div class="col-md-12">
+        <%= paginate @tasks, theme: "twitter-bootstrap-4" %>
+      </div>
+    </div>
+
+  </div>
+</div>

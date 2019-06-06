@@ -29,7 +29,7 @@
         </th>
 
         <th>
-          Name
+          First name
         </th>
 
         <th>
@@ -41,39 +41,31 @@
         </th>
 
         <th>
-          Network
-        </th>
-
-        <th>
-          Company
-        </th>
-
-        <th>
-          Title
-        </th>
-
-        <th>
-          Work location
-        </th>
-
-        <th>
           School program
         </th>
 
         <th>
-          School section
+          Notes
         </th>
 
         <th>
-          School kwest
+          User
         </th>
 
         <th>
-          First met
+          Hometown
         </th>
 
         <th>
-          Remarks
+          Interests
+        </th>
+
+        <th>
+          Last name
+        </th>
+
+        <th>
+          Network
         </th>
 
         <th>
@@ -95,7 +87,7 @@
         </td>
 
         <td>
-          <%= contact.name %>
+          <%= contact.first_name %>
         </td>
 
         <td>
@@ -107,39 +99,35 @@
         </td>
 
         <td>
-          <%= contact.network %>
-        </td>
-
-        <td>
-          <%= contact.company %>
-        </td>
-
-        <td>
-          <%= contact.title %>
-        </td>
-
-        <td>
-          <%= contact.work_location %>
-        </td>
-
-        <td>
           <%= contact.school_program %>
         </td>
 
         <td>
-          <%= contact.school_section %>
+          <%= contact.notes %>
         </td>
 
         <td>
-          <%= contact.school_kwest %>
+          <% if contact.user.present? %>
+            <a href="/users/<%= contact.user.id %>">
+              <%= contact.user.username %>
+            </a>
+          <% end %>
         </td>
 
         <td>
-          <%= contact.first_met %>
+          <%= contact.hometown %>
         </td>
 
         <td>
-          <%= contact.remarks %>
+          <%= contact.interests %>
+        </td>
+
+        <td>
+          <%= contact.last_name %>
+        </td>
+
+        <td>
+          <%= contact.network %>
         </td>
 
         <td>

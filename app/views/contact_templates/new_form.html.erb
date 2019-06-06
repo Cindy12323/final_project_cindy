@@ -8,11 +8,11 @@
 <form action="/create_contact" method="post">
 
   <div class="form-group">
-    <label for="name">
-      Name
+    <label for="first_name">
+      First name
     </label>
 
-    <input type="text" id="name" name="name" class="form-control">
+    <input type="text" id="first_name" name="first_name" class="form-control">
   </div>
 
   <div class="form-group">
@@ -32,38 +32,6 @@
   </div>
 
   <div class="form-group">
-    <label for="network">
-      Network
-    </label>
-
-    <input type="text" id="network" name="network" class="form-control">
-  </div>
-
-  <div class="form-group">
-    <label for="company">
-      Company
-    </label>
-
-    <input type="text" id="company" name="company" class="form-control">
-  </div>
-
-  <div class="form-group">
-    <label for="title">
-      Title
-    </label>
-
-    <input type="text" id="title" name="title" class="form-control">
-  </div>
-
-  <div class="form-group">
-    <label for="work_location">
-      Work location
-    </label>
-
-    <input type="text" id="work_location" name="work_location" class="form-control">
-  </div>
-
-  <div class="form-group">
     <label for="school_program">
       School program
     </label>
@@ -72,35 +40,45 @@
   </div>
 
   <div class="form-group">
-    <label for="school_section">
-      School section
+    <label for="notes">
+      Notes
     </label>
 
-    <input type="text" id="school_section" name="school_section" class="form-control">
+    <input type="text" id="notes" name="notes" class="form-control">
+  </div>
+
+  <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+  <div class="form-group">
+    <label for="hometown">
+      Hometown
+    </label>
+
+    <input type="text" id="hometown" name="hometown" class="form-control">
   </div>
 
   <div class="form-group">
-    <label for="school_kwest">
-      School kwest
+    <label for="interests">
+      Interests
     </label>
 
-    <input type="text" id="school_kwest" name="school_kwest" class="form-control">
+    <input type="text" id="interests" name="interests" class="form-control">
   </div>
 
   <div class="form-group">
-    <label for="first_met">
-      First met
+    <label for="last_name">
+      Last name
     </label>
 
-    <input type="text" id="first_met" name="first_met" class="form-control">
+    <input type="text" id="last_name" name="last_name" class="form-control">
   </div>
 
   <div class="form-group">
-    <label for="remarks">
-      Remarks
+    <label for="network">
+      Network
     </label>
 
-    <input type="text" id="remarks" name="remarks" class="form-control">
+    <input type="text" id="network" name="network" class="form-control">
   </div>
 
   <button class="btn btn-block btn-outline-secondary">

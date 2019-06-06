@@ -1,12 +1,25 @@
 class ContactsController < ApplicationController
+  before_action :current_user_must_be_contact_user, :only => [:show, :edit_form, :update_row, :destroy_row]
+
+  def current_user_must_be_contact_user
+    contact = Contact.find(params["id_to_display"] || params["prefill_with_id"] || params["id_to_modify"] || params["id_to_remove"])
+
+    unless current_user == contact.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
-    @q = Contact.ransack(params[:q])
-    @contacts = @q.result(:distinct => true).page(params[:page]).per(10)
+    @q = current_user.contacts.ransack(params[:q])
+    @contacts = @q.result(:distinct => true).includes(:activities, :jobs, :tasks, :user).page(params[:page]).per(10)
 
     render("contact_templates/index.html.erb")
   end
 
   def show
+    @task = Task.new
+    @job = Job.new
+    @activity = Activity.new
     @contact = Contact.find(params.fetch("id_to_display"))
 
     render("contact_templates/show.html.erb")
@@ -21,18 +34,16 @@ class ContactsController < ApplicationController
   def create_row
     @contact = Contact.new
 
-    @contact.name = params.fetch("name")
+    @contact.first_name = params.fetch("first_name")
     @contact.email = params.fetch("email")
     @contact.phone_number = params.fetch("phone_number")
-    @contact.network = params.fetch("network")
-    @contact.company = params.fetch("company")
-    @contact.title = params.fetch("title")
-    @contact.work_location = params.fetch("work_location")
     @contact.school_program = params.fetch("school_program")
-    @contact.school_section = params.fetch("school_section")
-    @contact.school_kwest = params.fetch("school_kwest")
-    @contact.first_met = params.fetch("first_met")
-    @contact.remarks = params.fetch("remarks")
+    @contact.notes = params.fetch("notes")
+    @contact.user_id = params.fetch("user_id")
+    @contact.hometown = params.fetch("hometown")
+    @contact.interests = params.fetch("interests")
+    @contact.last_name = params.fetch("last_name")
+    @contact.network = params.fetch("network")
 
     if @contact.valid?
       @contact.save
@@ -52,18 +63,16 @@ class ContactsController < ApplicationController
   def update_row
     @contact = Contact.find(params.fetch("id_to_modify"))
 
-    @contact.name = params.fetch("name")
+    @contact.first_name = params.fetch("first_name")
     @contact.email = params.fetch("email")
     @contact.phone_number = params.fetch("phone_number")
-    @contact.network = params.fetch("network")
-    @contact.company = params.fetch("company")
-    @contact.title = params.fetch("title")
-    @contact.work_location = params.fetch("work_location")
     @contact.school_program = params.fetch("school_program")
-    @contact.school_section = params.fetch("school_section")
-    @contact.school_kwest = params.fetch("school_kwest")
-    @contact.first_met = params.fetch("first_met")
-    @contact.remarks = params.fetch("remarks")
+    @contact.notes = params.fetch("notes")
+    
+    @contact.hometown = params.fetch("hometown")
+    @contact.interests = params.fetch("interests")
+    @contact.last_name = params.fetch("last_name")
+    @contact.network = params.fetch("network")
 
     if @contact.valid?
       @contact.save
@@ -72,6 +81,14 @@ class ContactsController < ApplicationController
     else
       render("contact_templates/edit_form_with_errors.html.erb")
     end
+  end
+
+  def destroy_row_from_user
+    @contact = Contact.find(params.fetch("id_to_remove"))
+
+    @contact.destroy
+
+    redirect_to("/users/#{@contact.user_id}", notice: "Contact deleted successfully.")
   end
 
   def destroy_row

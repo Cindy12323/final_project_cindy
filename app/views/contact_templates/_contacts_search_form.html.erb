@@ -2,53 +2,38 @@
   <p class="lead">Narrow results:</p>
 
   <div class="form-group">
-    <%= f.label :name_cont, "Name contains" %>
-    <%= f.text_field :name_cont, :class => "form-control", :placeholder => "Name contains" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :remarks_cont, "Remarks contains" %>
-    <%= f.text_field :remarks_cont, :class => "form-control", :placeholder => "Remarks contains" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :first_met_cont, "First met contains" %>
-    <%= f.text_field :first_met_cont, :class => "form-control", :placeholder => "First met contains" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :school_kwest_cont, "School kwest contains" %>
-    <%= f.text_field :school_kwest_cont, :class => "form-control", :placeholder => "School kwest contains" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :school_section_cont, "School section contains" %>
-    <%= f.text_field :school_section_cont, :class => "form-control", :placeholder => "School section contains" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :school_program_cont, "School program contains" %>
-    <%= f.text_field :school_program_cont, :class => "form-control", :placeholder => "School program contains" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :work_location_cont, "Work location contains" %>
-    <%= f.text_field :work_location_cont, :class => "form-control", :placeholder => "Work location contains" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :title_cont, "Title contains" %>
-    <%= f.text_field :title_cont, :class => "form-control", :placeholder => "Title contains" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :company_cont, "Company contains" %>
-    <%= f.text_field :company_cont, :class => "form-control", :placeholder => "Company contains" %>
+    <%= f.label :first_name_cont, "First name contains" %>
+    <%= f.text_field :first_name_cont, :class => "form-control", :placeholder => "First name contains" %>
   </div>
 
   <div class="form-group">
     <%= f.label :network_cont, "Network contains" %>
     <%= f.text_field :network_cont, :class => "form-control", :placeholder => "Network contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :last_name_cont, "Last name contains" %>
+    <%= f.text_field :last_name_cont, :class => "form-control", :placeholder => "Last name contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :interests_cont, "Interests contains" %>
+    <%= f.text_field :interests_cont, :class => "form-control", :placeholder => "Interests contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :hometown_cont, "Hometown contains" %>
+    <%= f.text_field :hometown_cont, :class => "form-control", :placeholder => "Hometown contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :notes_cont, "Notes contains" %>
+    <%= f.text_field :notes_cont, :class => "form-control", :placeholder => "Notes contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :school_program_cont, "School program contains" %>
+    <%= f.text_field :school_program_cont, :class => "form-control", :placeholder => "School program contains" %>
   </div>
 
   <div class="form-group">
@@ -102,6 +87,25 @@
   </script>
 
 
+  <div class="form-group">
+    <%= f.label :activities_title_cont, "Activity title contains" %>
+    <%= f.text_field :activities_title_cont, :class => "form-control", :placeholder => "Activity title contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :jobs_company_cont, "Job company contains" %>
+    <%= f.text_field :jobs_company_cont, :class => "form-control", :placeholder => "Job company contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :tasks_title_cont, "Task title contains" %>
+    <%= f.text_field :tasks_title_cont, :class => "form-control", :placeholder => "Task title contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :user_username_cont, "User username contains" %>
+    <%= f.text_field :user_username_cont, :class => "form-control", :placeholder => "User username contains" %>
+  </div>
 
 
   <%= f.submit :class => "btn btn-primary btn-block mb-1" %>

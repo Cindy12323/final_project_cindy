@@ -1,0 +1,21 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Contacts
+
+    <a data-toggle="collapse" href="#user_contacts_new_form">
+      Add contact
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @user.contacts.each do |contact| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <a href="/contacts/<%= contact.id %>">
+          <%= contact.first_name %>
+        </a>
+
+      </li>
+    <% end %>
+
+  </ul>
+</div>

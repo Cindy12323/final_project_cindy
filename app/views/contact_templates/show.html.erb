@@ -12,24 +12,28 @@
       </div>
 
       <div class="col">
-        <a href="/contacts/<%= @contact.id %>/edit" class="btn btn-block btn-outline-secondary">
-          Edit contact
-        </a>
+        <% if current_user == @contact.user %>
+          <a href="/contacts/<%= @contact.id %>/edit" class="btn btn-block btn-sm btn-outline-secondary">
+            Edit contact
+          </a>
+        <% end %>
       </div>
 
       <div class="col">
-        <a href="/delete_contact/<%= @contact.id %>" class="btn btn-block btn-outline-secondary">
-          Delete contact
-        </a>
+        <% if current_user == @contact.user %>
+          <a href="/delete_contact/<%= @contact.id %>" class="btn btn-block btn-sm btn-outline-secondary">
+            Delete contact
+          </a>
+        <% end %>
       </div>
     </div>
 
     <dl>
       <dt>
-        Name
+        First name
       </dt>
       <dd>
-        <%= @contact.name %>
+        <%= @contact.first_name %>
       </dd>
 
       <dt>
@@ -47,34 +51,6 @@
       </dd>
 
       <dt>
-        Network
-      </dt>
-      <dd>
-        <%= @contact.network %>
-      </dd>
-
-      <dt>
-        Company
-      </dt>
-      <dd>
-        <%= @contact.company %>
-      </dd>
-
-      <dt>
-        Title
-      </dt>
-      <dd>
-        <%= @contact.title %>
-      </dd>
-
-      <dt>
-        Work location
-      </dt>
-      <dd>
-        <%= @contact.work_location %>
-      </dd>
-
-      <dt>
         School program
       </dt>
       <dd>
@@ -82,31 +58,49 @@
       </dd>
 
       <dt>
-        School section
+        Notes
       </dt>
       <dd>
-        <%= @contact.school_section %>
+        <%= @contact.notes %>
       </dd>
 
       <dt>
-        School kwest
+        User
       </dt>
       <dd>
-        <%= @contact.school_kwest %>
+        <% if @contact.user.present? %>
+          <a href="/users/<%= @contact.user_id %>">
+            <%= @contact.user.username %>
+          </a>
+        <% end %>
       </dd>
 
       <dt>
-        First met
+        Hometown
       </dt>
       <dd>
-        <%= @contact.first_met %>
+        <%= @contact.hometown %>
       </dd>
 
       <dt>
-        Remarks
+        Interests
       </dt>
       <dd>
-        <%= @contact.remarks %>
+        <%= @contact.interests %>
+      </dd>
+
+      <dt>
+        Last name
+      </dt>
+      <dd>
+        <%= @contact.last_name %>
+      </dd>
+
+      <dt>
+        Network
+      </dt>
+      <dd>
+        <%= @contact.network %>
       </dd>
 
       <dt>
@@ -126,3 +120,20 @@
   </div>
 </div>
 
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <%= render partial: "contact_templates/contact_activities" %>
+  </div>
+</div>
+
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <%= render partial: "contact_templates/contact_jobs" %>
+  </div>
+</div>
+
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <%= render partial: "contact_templates/contact_tasks" %>
+  </div>
+</div>
