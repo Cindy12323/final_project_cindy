@@ -53,6 +53,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rspec-rails'
 gem 'shoulda-matchers'
+gem 'devise'
 gem 'draft_generators', git: 'https://github.com/firstdraft/draft_generators.git'
 gem 'web_git', github: 'firstdraft/web_git'
 gem 'activeadmin', '1.2.1'

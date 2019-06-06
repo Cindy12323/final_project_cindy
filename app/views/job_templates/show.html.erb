@@ -1,0 +1,97 @@
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h1>
+      Job #<%= @job.id %> details
+    </h1>
+
+    <div class="row mb-3">
+      <div class="col">
+        <a href="/jobs" class="btn btn-block btn-outline-secondary">
+          Go back
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="/jobs/<%= @job.id %>/edit" class="btn btn-block btn-outline-secondary">
+          Edit job
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="/delete_job/<%= @job.id %>" class="btn btn-block btn-outline-secondary">
+          Delete job
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Contact
+      </dt>
+      <dd>
+        <% if @job.contact.present? %>
+          <a href="/contacts/<%= @job.contact_id %>">
+            <%= @job.contact.first_name %>
+          </a>
+        <% end %>
+      </dd>
+
+      <dt>
+        Company
+      </dt>
+      <dd>
+        <%= @job.company %>
+      </dd>
+
+      <dt>
+        Position
+      </dt>
+      <dd>
+        <%= @job.position %>
+      </dd>
+
+      <dt>
+        Location
+      </dt>
+      <dd>
+        <%= @job.location %>
+      </dd>
+
+      <dt>
+        Start date
+      </dt>
+      <dd>
+        <%= @job.start_date %>
+      </dd>
+
+      <dt>
+        End date
+      </dt>
+      <dd>
+        <%= @job.end_date %>
+      </dd>
+
+      <dt>
+        Current
+      </dt>
+      <dd>
+        <%= @job.current %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@job.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@job.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+

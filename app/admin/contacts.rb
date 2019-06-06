@@ -1,6 +1,6 @@
 ActiveAdmin.register Contact do
 
- permit_params :name, :email, :phone_number, :network, :company, :title, :work_location, :school_program, :school_section, :school_kwest, :first_met, :remarks
+ permit_params :first_name, :email, :phone_number, :school_program, :notes, :user_id, :hometown, :interests, :last_name, :network
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #

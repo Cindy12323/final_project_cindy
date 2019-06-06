@@ -1,0 +1,90 @@
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h1>
+      Task #<%= @task.id %> details
+    </h1>
+
+    <div class="row mb-3">
+      <div class="col">
+        <a href="/tasks" class="btn btn-block btn-outline-secondary">
+          Go back
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="/tasks/<%= @task.id %>/edit" class="btn btn-block btn-outline-secondary">
+          Edit task
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="/delete_task/<%= @task.id %>" class="btn btn-block btn-outline-secondary">
+          Delete task
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Due date
+      </dt>
+      <dd>
+        <%= @task.due_date %>
+      </dd>
+
+      <dt>
+        Title
+      </dt>
+      <dd>
+        <%= @task.title %>
+      </dd>
+
+      <dt>
+        Notes
+      </dt>
+      <dd>
+        <%= @task.notes %>
+      </dd>
+
+      <dt>
+        Tag
+      </dt>
+      <dd>
+        <%= @task.tag %>
+      </dd>
+
+      <dt>
+        Status
+      </dt>
+      <dd>
+        <%= @task.status %>
+      </dd>
+
+      <dt>
+        Contact
+      </dt>
+      <dd>
+        <% if @task.contact.present? %>
+          <a href="/contacts/<%= @task.contact_id %>">
+            <%= @task.contact.first_name %>
+          </a>
+        <% end %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@task.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@task.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+

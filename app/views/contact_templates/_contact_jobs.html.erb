@@ -1,0 +1,31 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Jobs
+
+    <a data-toggle="collapse" href="#contact_jobs_new_form">
+      Add job
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @contact.jobs.each do |job| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <a href="/jobs/<%= job.id %>">
+          <%= job.company %>
+        </a>
+
+        <a href="/delete_job_from_contact/<%= job.id %>">
+          Delete
+        </a>
+
+      </li>
+    <% end %>
+
+    <div class="card-footer">
+      <div class="collapse" id="contact_jobs_new_form">
+        <%= render partial: "contact_templates/contact_jobs_new_form" %>
+      </div>
+    </div>
+
+  </ul>
+</div>

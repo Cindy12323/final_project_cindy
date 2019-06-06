@@ -1,0 +1,67 @@
+<h1>
+  Add a new task
+</h1>
+
+
+<hr>
+
+<form action="/create_task" method="post">
+
+  <div class="form-group">
+    <label for="due_date">
+      Due date
+    </label>
+
+    <input type="text" id="due_date" name="due_date" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label for="title">
+      Title
+    </label>
+
+    <input type="text" id="title" name="title" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label for="notes">
+      Notes
+    </label>
+
+    <input type="text" id="notes" name="notes" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label for="tag">
+      Tag
+    </label>
+
+    <input type="text" id="tag" name="tag" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label for="status">
+      Status
+    </label>
+
+    <input type="text" id="status" name="status" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label for="contact_id">
+      Contact
+    </label>
+
+    <%= select_tag(:contact_id, options_from_collection_for_select(Contact.all, :id, :first_name, @task.contact_id), :class => "form-control") %>
+  </div>
+
+  <button class="btn btn-block btn-outline-secondary">
+    Create task
+  </button>
+</form>
+
+<hr>
+
+<a href="/tasks">
+  Go back
+</a>
